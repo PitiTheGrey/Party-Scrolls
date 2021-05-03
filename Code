@@ -30,9 +30,6 @@ function getScrolls() {
     sheet.getRange(i, 1).setValue(key._id);
     sheet.getRange(i, 2).setValue(key.profile.name);
     user = JSON.parse(UrlFetchApp.fetch("https://habitica.com/api/v3/members/" + key._id, params));
-    //var questObject= JSON.stringify(user.data.items.quests); 
-     
-    //sheet.getRange(i, 3).setValue(user.data.items.quests);
     
     for(var quest in user.data.items.quests) {
       var k = user.data.items.quests[quest];
@@ -41,7 +38,7 @@ function getScrolls() {
         sheet.getRange(i, 3).setValue(quest);
         sheet.getRange(i, 4).setValue(k);
         i++;
-      } 
+      }    
     }
   }
 }
